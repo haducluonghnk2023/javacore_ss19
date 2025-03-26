@@ -1,19 +1,16 @@
 package Ex;
 
 import java.util.*;
+import java.util.function.Predicate;
 
 public class Ex01 {
     public static void main(String[] args) {
-        List<String> list = Arrays.asList("Java","", "Lambda", "Stream","");
-        check(list);
-    }
-    public static void check(List<String> list){
-        List<String> list1 = new ArrayList<>();
-        for(String s: list){
-            if (!s.isEmpty()){
-                list1.add(s);
+        String[] arr = {"Java", "", "Lambda", "Stream", "", "Functional"};
+        Predicate<String> isNotEmpty = e -> !e.isEmpty();
+        for (String str : arr) {
+            if (isNotEmpty.test(str)) {
+                System.out.println(str);
             }
         }
-        System.out.println(list1);
     }
 }
